@@ -6,9 +6,14 @@ if yn "use gentoo install instead vanilla?";then
 else
                 emerge --ask vanilla-sources
 fi;
-if yn "install grub";
+
+if yn "install grub";then
 	emerge grub
 fi;
+
+if yn "Install os-prober?";then
+	emerge --ask os-prober
+fi
 
 while ! yn "Your boot directory is worked?";
 do
@@ -29,6 +34,7 @@ else
 	make modules_install && make install
 fi;
 
+grub_disk=""
 while [ 1 == 1 ];
 do
 	read -p "Write your disk where installed gentoo(for grub)" grub_disk
