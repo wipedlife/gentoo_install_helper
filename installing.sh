@@ -61,7 +61,7 @@ mount -o bind /sys $mountpoint/sys || error "Cannot mount sys"
 echo "mounted dev, sys, proc"
 echo "chrooting"
 ####
-cp $lastdir/"2part.sh" $mountpoint/ || error "Cannot copy 2part.sh"
+cp $lastdir/"*part.sh" $mountpoint/ || error "Cannot copy Npart.sh"
 cp /etc/resolv.conf $mountpoint/etc/
 chroot $mountpoint /bin/bash
 echo "Run 2part for help with emerge"
